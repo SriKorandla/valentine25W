@@ -1,42 +1,41 @@
-<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio="xMidYMid meet" viewBox='0 0 800 600'>
-    <defs>
-      <mask id="path-mask" maskUnits="userSpaceOnUse">
-        <!-- heart outline -->
-        <path class="draw-path-1" d="M437.47,511.28c-52.55-58.84-130.36-140.12-193.5-188.48-50.79-38.91-74.01-107.98-55.77-169.3,10.34-34.77,40.44-61.09,74.04-74.74,30.16-12.26,65.49-15.36,94.82-1.23,29.32,14.13,49.9,48.21,63.29,87.63-.71-27.27,16-52.86,38.18-68.73,22.19-15.88,48.81-19.63,76.08-18.73,22.35.74,62.51,27.23,72.44,54.3,18.27,49.81,12.12,77.46-7.48,126.76-26.95,67.78-73.61,116.62-129.84,163.09-11.6,9.59-43.04,39.73-44.89,75.43" fill="none" stroke="white" stroke-width="8" />
-        <!-- heart fill -->
-        <path class="draw-path-2" d="M182.02,172.48c27.67-32.23,61.44-69.4,97.05-93.41-54.22,51.91-43.53,66.17-98.86,122.98,76.67-52.82,73.18-66.73,140-130.7-49.71,55.79-70.8,87.31-120.51,143.1,57.67-35.14,100.13-91.71,163.04-128.04-74.95,62.69-156.39,170.13-156.39,170.13,0,0,116.35-86.47,181.08-154.29-42.89,55.17-164.24,183.09-164.24,183.09,0,0,127.15-92.6,176.81-155.06-50.55,93.92-83.77,89.94-150.67,184.75,96.58-67.34,147.92-132.93,239.69-225.51-53.61,89.05-154.17,171.94-211.77,253.86,69.6-72.03,197.65-188.59,272.03-256.08-74.92,99.7-163.04,163.48-250.76,276.02,150.63-142.22,190.88-172.14,280.23-265.95-72.24,71.34-168.14,195.1-249.22,271.71,72.35-63.56,194.5-175,257.85-240.13-75.75,89.02-159.62,172.58-234.81,260.95,80.86-54.29,172.79-173.23,245-237.47-26.14,64.24-200.54,207.84-222.41,268.04,0,0,211.1-220.55,226.39-219.75,0,0-204.69,217.09-203.36,239.24,0,0,176.77-193.61,194.94-197.15,0,0-183.42,210.89-175.89,220.63,0,0,98.8-114.3,139.56-140.44" fill="none" stroke="white" stroke-width="8" />
-      </mask>
-    </defs>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <link rel="stylesheet" href="yes.css">
+  </head>
+  <body> 
+    <h1> YAYYY THANKS SO MUCH IM VERY GRATEFUL</h1>
     
-    <!-- paper background -->
-    <filter id='paper-bg'>
-      <feTurbulence type="fractalNoise" baseFrequency='0.2' result='noise' numOctaves="5" />
-      <feDiffuseLighting in="noise" lighting-color="#fff9f0" surfaceScale=".2" result="diffLight">
-        <feDistantLight azimuth='45' elevation='60' />
-      </feDiffuseLighting>
-    </filter>
-  
-    <!-- red pencil background -->
-    <!-- path stroke used as mask on this layer -->
-    <filter id='black-pencil'>
-      <feTurbulence type="fractalNoise" baseFrequency='0.5' result='noise' numOctaves="5" />
-      <feColorMatrix type="matrix" values="
-        1 0.33 0.33 0 0
-        0.33 0.33 0.33 0 0
-        0.33 0.33 0.33 0 0
-        0    0    0    1 0" />
-      <feBlend in="a" in2="b" result="ab" mode="multiply" />
-      <feComponentTransfer>
-        <feFuncR type="linear" slope="1" intercept="-0.3" />
-        <feFuncG type="linear" slope="1" intercept="-0.3" />
-        <feFuncB type="linear" slope="1" intercept="-0.3" />
-      </feComponentTransfer>
-    </filter>
-  
-    <!-- paper rect -->
-    <rect x='0' y='0' width='100%' height='100%' fill='white' filter='url(#paper-bg)' />
-  
-    <!-- pencil fill rect (masked) -->
-    <rect x='0' y='0' mask="url(#path-mask)" width='100%' height='100%' fill='black' filter='url(#black-pencil)' />
-  
-  </svg>
+      <div id="heart-wrapper" class="heart__wrapper">
+        <div class="heart__sun"></div>
+        <div class="heart__shadow"></div>
+        <div id="heart" class="heart">
+          <div class="heart__lines"></div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="heart__icon" width="5rem" height="5rem" viewBox="0 0 24 24" fill="none">
+            <defs>
+              <radialGradient id="RadialGradient" cx="0.85" cy="0.1" r="0.15">
+                <stop offset="0%" stop-color="#ffaea0" />
+                <stop offset="100%" stop-color="#ffaea0" />
+                <stop offset="100%" stop-color="#ff7d66" />
+              </radialGradient>
+            </defs>
+            <title id="button-label">Like</title>
+            <path aria-labelledby="button-label" d="M2 9.1371C2 14 6.01943 16.5914 8.96173 18.9109C10 19.7294 11 20.5 12 20.5C13 20.5 14 19.7294 15.0383 18.9109C17.9806 16.5914 22 14 22 9.1371C22 4.27416 16.4998 0.825464 12 5.50063C7.50016 0.825464 2 4.27416 2 9.1371Z" stroke="#BBB" stroke-width="1" fill="#FFF" />
+          </svg>
+          <div class="heart__eyes"></div>
+          <div class="heart__blush"></div>
+          <div class="heart__mouth"></div>
+          <div class="heart__arms"></div>
+          <div class="heart__legs"></div>
+        </div>
+      </div>
+ 
+    
+    <h1> I'm glad I get to spend valentines day with someone as wonderful as you :) </h1>
+    <script src="yes.js"></script>
+  </body>
+
+</html>

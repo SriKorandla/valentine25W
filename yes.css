@@ -1,30 +1,338 @@
-html,
-body {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  padding: 0;
-  margin: 0;
+html {
+  font-size: 20px;
 }
 
-svg {
-  margin: 0 auto;
-  max-height: 100%;
-  aspect-ratio: 800/600;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
-.draw-path-1 {
-  stroke-dasharray: 1464.49;
-  stroke-dashoffset: 1464.49;
-  animation: draw 2.5s linear forwards;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: column; /* Stack the content vertically */
+  text-align: center; /* Center the text horizontally */
 }
-.draw-path-2 {
-  stroke-dasharray: 7018.72;
-  stroke-dashoffset: 7018.72;
-  animation: draw 4s linear forwards;
-  animation-delay: 3s;
+
+h1 {
+  font-size: 2rem; /* Adjust font size to make it more readable */
+  margin: 1rem; /* Space out the headings */
+  color: #333; /* Make the text color darker for contrast */
+  font-family: 'Arial', sans-serif; /* Change font for a cleaner look */
+  line-height: 1.4; /* Improve line spacing for readability */
 }
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
+
+
+.heart {
+  position: relative;
+  cursor: pointer;
+  will-change: transform;
+  -webkit-tap-highlight-color: transparent;
+}
+.heart__wrapper {
+  position: relative;
+}
+.heart__sun {
+  position: absolute;
+  top: -2.5rem;
+  left: -0.5rem;
+  z-index: -1;
+  height: -1rem;
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.5s ease;
+}
+.heart__shadow {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+  z-index: -1;
+  width: 3rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 1.4rem 0 0 #bbb;
+  transition: box-shadow 0.5s ease;
+}
+.heart__lines {
+  position: absolute;
+  top: -0.6rem;
+  right: 0.2rem;
+  width: 0.2rem;
+  height: 0.8rem;
+  border-radius: 0.5rem;
+  background-color: #bbb;
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+.heart__lines:before, .heart__lines:after {
+  content: "";
+  position: absolute;
+  width: 0.2rem;
+  height: 0.8rem;
+  border-radius: 0.5rem;
+  background-color: #bbb;
+  transform-origin: 0.1rem 0.7rem;
+  transition: height 0.5s ease;
+}
+.heart__lines:before {
+  top: 0.25rem;
+  left: 0.5rem;
+  transform: rotate(30deg);
+}
+.heart__lines:after {
+  top: 0.5rem;
+  left: 1rem;
+  transform: rotate(60deg);
+}
+.heart__icon path {
+  position: relative;
+}
+.heart__eyes {
+  position: absolute;
+  top: 1.5rem;
+  left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 3rem;
+  height: 1rem;
+  transition: all 0.1s ease;
+}
+.heart__eyes:before, .heart__eyes:after {
+  content: "";
+  width: 1rem;
+  height: 0.2rem;
+  background-color: #bbb;
+  transition: all 0.1s ease;
+}
+.heart__mouth {
+  position: absolute;
+  top: 3rem;
+  left: 2rem;
+  width: 1rem;
+  height: 0.2rem;
+  background-color: #bbb;
+  transition: all 0.2s ease;
+}
+.heart__arms {
+  position: absolute;
+  top: 2rem;
+  left: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 4.2rem;
+  height: 1.5rem;
+}
+.heart__arms:before, .heart__arms:after {
+  content: "";
+  width: 0.2rem;
+  height: 0;
+  border-radius: 0 0 0.2rem 0.2rem;
+  transform-origin: 0.1rem 0.2rem;
+}
+.heart__legs {
+  position: absolute;
+  top: 3.6rem;
+  left: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 2rem;
+  height: 1rem;
+}
+.heart__legs:before, .heart__legs:after {
+  content: "";
+  width: 0.2rem;
+  height: 0;
+  border-radius: 0 0 0.2rem 0.2rem;
+  transform-origin: 0.1rem 0rem;
+}
+.heart:not(.heart--active):hover {
+  transform-origin: center bottom;
+  animation: swing;
+  animation-duration: 1s;
+}
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  33% {
+    transform: rotate(5deg);
+  }
+  66% {
+    transform: rotate(-2deg);
   }
 }
+.heart__wrapper--active .heart__sun {
+  background-color: #f5fccd;
+}
+.heart__wrapper--active .heart__shadow {
+  animation: shadow;
+  animation-duration: 1.5s;
+}
+@keyframes shadow {
+  40%, 85% {
+    box-shadow: 0 1.4rem 0 -0.1rem #bbb;
+  }
+}
+.heart--active {
+  animation: leap;
+  animation-duration: 1.5s;
+  pointer-events: none;
+}
+@keyframes leap {
+  40%, 85% {
+    transform: translate(0.2rem, -3rem) rotate(-25deg);
+  }
+}
+.heart--active .heart__lines {
+  animation: lines;
+  animation-duration: 1.3s;
+  animation-delay: 0.2s;
+  background-color: #000038;
+}
+@keyframes lines {
+  20%, 80% {
+    opacity: 0;
+  }
+  40%, 60% {
+    opacity: 1;
+  }
+}
+.heart--active .heart__lines:before, .heart--active .heart__lines:after {
+  background-color: #000038;
+}
+.heart--active .heart__icon path {
+  fill: url(#RadialGradient);
+  stroke: #ff7d66;
+}
+@supports (-webkit-hyphens: none) {
+  .heart--active .heart__icon path {
+    fill: #ff7d66;
+  }
+}
+.heart--active .heart__eyes {
+  width: 2.5rem;
+  padding: 0 0.25rem;
+}
+.heart--active .heart__eyes:before, .heart--active .heart__eyes:after {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at 70% 30%, #fff 15%, #000038 15%, #000038);
+}
+.heart--active .heart__blush {
+  position: absolute;
+  top: 2.5rem;
+  left: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 2.5rem;
+  height: 1rem;
+}
+.heart--active .heart__blush:before, .heart--active .heart__blush:after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #f58bc0;
+}
+.heart--active .heart__mouth {
+  height: 0.5rem;
+  border-radius: 0 0 2rem 2rem;
+  background-color: #000038;
+  overflow: hidden;
+}
+.heart--active .heart__mouth:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  width: 60%;
+  height: 50%;
+  border-radius: 3rem 3rem 0 0;
+  background-color: #f58bc0;
+}
+.heart--active .heart__arms:before, .heart--active .heart__arms:after {
+  height: 1.5rem;
+  background-color: #ff7d66;
+  transition-propery: transform, height;
+  transition-duration: 0.1s;
+}
+.heart--active .heart__arms:before {
+  animation: leftArm;
+  animation-duration: 1.5s;
+}
+@keyframes leftArm {
+  0% {
+    transform: rotate(0deg);
+  }
+  40%, 70% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+.heart--active .heart__arms:after {
+  animation: rightArm;
+  animation-duration: 1.5s;
+}
+@keyframes rightArm {
+  0% {
+    transform: rotate(0deg);
+  }
+  40%, 80% {
+    transform: rotate(-160deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+.heart--active .heart__legs:before, .heart--active .heart__legs:after {
+  height: 1rem;
+  background-color: #ff7d66;
+  transition-propery: transform, height;
+  transition-duration: 0.6s;
+}
+.heart--active .heart__legs:before {
+  animation: leftLeg;
+  animation-duration: 1.5s;
+}
+@keyframes leftLeg {
+  0% {
+    transform: rotate(0deg);
+  }
+  40%, 80% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+.heart--active .heart__legs:after {
+  animation: leftRight;
+  animation-duration: 1.5s;
+}
+@keyframes leftRight {
+  0% {
+    transform: rotate(0deg);
+  }
+  40%, 80% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+/*# sourceMappingURL=yes.css.map */
