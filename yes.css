@@ -22,7 +22,7 @@ body {
 }
 
 h1 {
-  font-size: 3rem; /* Adjust font size to make it more readable */
+  font-size: 3.4rem; /* Adjust font size to make it more readable */
   margin: 1rem; /* Space out the headings */
   color: #ce5555; /* Make the text color darker for contrast */
   font-family: 'Arial', sans-serif; /* Change font for a cleaner look */
@@ -37,7 +37,9 @@ h2 {
   font-family: 'Arial', sans-serif; /* Change font for a cleaner look */
   line-height: 1.4; /* Improve line spacing for readability */
   position: absolute;
+  width: 50%;
   top: 70%;
+  font-weight: lighter;
 }
 
 
