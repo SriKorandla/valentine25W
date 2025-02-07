@@ -8,6 +8,8 @@ body {
   align-items: center;
   height: 100vh;
   overflow: hidden;
+  background-color: #FDFD96;
+  background-color: #F9E66C;;
 }
 body {
   display: flex;
@@ -20,11 +22,22 @@ body {
 }
 
 h1 {
-  font-size: 2rem; /* Adjust font size to make it more readable */
+  font-size: 3rem; /* Adjust font size to make it more readable */
   margin: 1rem; /* Space out the headings */
-  color: #333; /* Make the text color darker for contrast */
+  color: #ce5555; /* Make the text color darker for contrast */
   font-family: 'Arial', sans-serif; /* Change font for a cleaner look */
   line-height: 1.4; /* Improve line spacing for readability */
+  position: absolute;
+  top: 10%;
+}
+h2 {
+  font-size: 2.5rem; /* Adjust font size to make it more readable */
+  margin: 1rem; /* Space out the headings */
+  color: #ce5555; /* Make the text color darker for contrast */
+  font-family: 'Arial', sans-serif; /* Change font for a cleaner look */
+  line-height: 1.4; /* Improve line spacing for readability */
+  position: absolute;
+  top: 70%;
 }
 
 
